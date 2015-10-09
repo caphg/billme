@@ -1,5 +1,8 @@
 require "rubyBill/version"
-require "rubyBill/generator"
+require_relative "rubyBill/entries"
+require_relative "rubyBill/generator"
+require_relative "rubyBill/group"
+require_relative "rubyBill/section"
 
 module RubyBill
   def self.bill(&block)
