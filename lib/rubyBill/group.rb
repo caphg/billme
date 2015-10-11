@@ -1,7 +1,7 @@
 module RubyBill
   class Group
 
-    attr_accessor(:sections)
+    attr_accessor(:sections, :name)
 
     def initialize(name)
       @name = name

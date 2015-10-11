@@ -7,8 +7,14 @@ module RubyBill
       @data = {}
     end
 
-    Entries.getAll.each do |entry|
+    Entries.itemEntries.each do |entry|
       define_method(entry) do |attr=nil|
+        @data[entry] = attr
+      end
+    end
+
+    Entries.clientEntries.each do |entry|
+      define_method(entry.to_s) do |attr=nil|
         @data[entry] = attr
       end
     end
