@@ -52,6 +52,20 @@
       <td class="total"><%= section.data[:quantity].to_i * section.data[:unit].to_i %><%= section.data[:currency] %></td>
     </tr>
     <% end %>
+    <tr>
+      <td colspan="4">SUBTOTAL</td>
+      <td class="total"><%= @groups[:items].sections.map {|section| section.data[:quantity].to_i * section.data[:unit].to_i }.inject{|sum,x| sum + x } %></td>
+    </tr>
+    <tr>
+      <td colspan="4">TAX 25%</td>
+      <td class="total"><td class="total"><%= @groups[:items].sections.map {|section| section.data[:quantity].to_i * section.data[:unit].to_i }.inject{|sum,x| sum + x } * 0.25 %></td>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4" class="grand total">GRAND TOTAL</td>
+      <td class="grand total"><td class="total"><%= @groups[:items].sections.map {|section| section.data[:quantity].to_i * section.data[:unit].to_i }.inject{|sum,x| sum + x } * 1.25 %></td>
+      </td>
+    </tr>
     </tbody>
   </table>
   <div id="notices">
