@@ -4,11 +4,15 @@ module RubyBill
   class Generator
     def initialize
       @template_file_path = File.expand_path('../views/bill.html.erb', __FILE__)
+      @css_path = File.expand_path('../views/style.css', __FILE__)
       @bill_year = "2015"
       @bill_place = "1"
       @bill_number = "1"
       @data= {}
       @groups = {}
+      @css = nil
+
+      read_css
     end
 
     attr_accessor :company_name, :bill_year, :bill_place, :bill_number
@@ -38,10 +42,19 @@ module RubyBill
       "#{@bill_year}-#{@bill_place}-#{@bill_number}"
     end
 
+    def read_css
+      File.open(@css_path, 'r') do |file|
+        @css = file.read
+      end
+    end
+
     def generate
       erb = ERB.new(File.read(@template_file_path))
       erb.filename = "bill#{get_bill_id}"
-      print erb.result(binding)
+      result = erb.result(binding)
+      File.open('output.html', 'w') do |file|
+        file.write(result)
+      end
     end
   end
 end
