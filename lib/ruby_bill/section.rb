@@ -1,12 +1,13 @@
 module RubyBill
 	class Section
-		def initialize
-			@data = {}
-		end
 
-		def append(*args, &block)
-			p args
-			p block
+		def self.inherited(subclass)
+			p subclass + 'inherited!'
+			<<-eos
+				class #{subclass}
+					def self.attributes = Entries.#{subclass.lower}_entries
+				end
+			eos
 		end
 	end
 end

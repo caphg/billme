@@ -14,7 +14,9 @@ module RubyBill
     attr_accessor :company_name, :bill_year, :bill_place, :bill_number
 
     def company(&block)
-      Section.new &block
+      p "in company..."
+      section = CompanySection.new
+      section.append &block
     end
 
     def generate
