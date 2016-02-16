@@ -1,4 +1,4 @@
-require 'rubyBill'
+require 'ruby_bill'
 
 RubyBill.bill do
   logo "logo.png"
