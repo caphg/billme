@@ -13,9 +13,8 @@ module RubyBill
 
     attr_accessor :company_name, :bill_year, :bill_place, :bill_number
 
-    Entries.company_entries.each do |entry|
-      sub_section = get_or_create_subsection entry
-      sub_section.append entry
+    def company(&block)
+      Section.new &block
     end
 
     def generate
