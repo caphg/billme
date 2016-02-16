@@ -1,3 +1,4 @@
+require_relative "ruby_bill/support/helpers"
 require "ruby_bill/version"
 require_relative "ruby_bill/entries"
 require_relative "ruby_bill/factory"

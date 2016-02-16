@@ -2,10 +2,10 @@ module RubyBill
 	class Section
 
 		def self.inherited(subclass)
-			p subclass + 'inherited!'
+			p "#{subclass.demodulize} inherited!"
 			<<-eos
-				class #{subclass}
-					def self.attributes = Entries.#{subclass.lower}_entries
+				class #{subclass.demodulize}
+					def self.attributes = Entries.#{subclass.demodulize}_entries
 				end
 			eos
 		end
