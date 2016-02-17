@@ -1,13 +1,11 @@
 module RubyBill
 	class Section
-
-		def self.inherited(subclass)
-			p "#{subclass.demodulize} inherited!"
-			<<-eos
-				class #{subclass.demodulize}
-					def self.attributes = Entries.#{subclass.demodulize}_entries
+		def self.inherited(klass)
+			klass.class_eval do
+				def self.attributes
+					Entries.send("#{self.demodulize.downcase.split('section')[0]}_entries")
 				end
-			eos
+			end
 		end
 	end
 end

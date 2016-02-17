@@ -5,7 +5,7 @@ module RubyBill
     def initialize
       @template_file_path = File.expand_path('../views/bill.html.erb', __FILE__)
       @css_path = File.expand_path('../views/style.css', __FILE__)
-      @data = []
+      @data = {}
       @css = nil
 
       read_css
@@ -16,7 +16,15 @@ module RubyBill
     def company(&block)
       p "in company..."
       section = CompanySection.new
-      section.append &block
+      section.instance_eval &block
+      p "#{section.data} | data"
+    end
+
+    def client(&block)
+      p "in client..."
+      section = ClientSection.new
+      section.instance_eval &block
+      p "#{section.data} | data"
     end
 
     def generate

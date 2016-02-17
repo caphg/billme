@@ -1,5 +1,5 @@
 module RubyBill
-	class CompanySection < Section
+	class ClientSection < Section
 		attr_reader :data
 
 		def initialize
