@@ -21,22 +21,22 @@ RubyBill.bill do
     email "google@google.com"
   end
 
-  # items do
-  #   section do
-  #     service "Website design"
-  #     description "Designing period 2015-5-5 to 2015-6-5"
-  #     unit "1000"
-  #     currency "$"
-  #     quantity "1"
-  #   end
-  #   section do
-  #     service "Backend stuff"
-  #     description "Period 2015-5-5 to 2015-6-5"
-  #     unit "2000"
-  #     currency "$"
-  #     quantity "2"
-  #   end
-  # end
+  services do
+    service do
+      name "Website design"
+      description "Designing period 2015-5-5 to 2015-6-5"
+      unit "1000"
+      currency "$"
+      quantity "1"
+    end
+    service do
+      name "Backend stuff"
+      description "Period 2015-5-5 to 2015-6-5"
+      unit "2000"
+      currency "$"
+      quantity "2"
+    end
+  end
 
   other do
     notice "A finance charge of 1.5% will be made on unpaid balances after 30 days."

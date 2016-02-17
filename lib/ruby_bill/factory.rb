@@ -27,6 +27,20 @@ module RubyBill
       p "#{section.data} | data"
     end
 
+    def other(&block)
+      p "in other..."
+      section = OtherSection.new
+      section.instance_eval &block
+      p "#{section.data} | data"
+    end
+
+    def services(&block)
+      p "in services..."
+      section = ServicesSection.new
+      section.instance_eval &block
+      p "#{section.data} | data"
+    end
+
     def generate
       erb = ERB.new(File.read(@template_file_path))
       erb.filename = "bill1"

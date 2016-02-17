@@ -4,8 +4,8 @@ module RubyBill
       [:company_address, :company_city, :company_country, :company_phone, :company_name, :company_email, :logo]
     end
 
-    def self.item_entries
-      [:service, :description, :unit, :quantity, :currency]
+    def self.services_entries
+      [:service]
     end
 
     def self.client_entries
