@@ -7,6 +7,7 @@ require_relative "ruby_bill/company_section"
 require_relative "ruby_bill/client_section"
 require_relative "ruby_bill/other_section"
 require_relative "ruby_bill/services_section"
+require_relative "ruby_bill/service_details"
 
 module RubyBill
   def self.bill(&block)

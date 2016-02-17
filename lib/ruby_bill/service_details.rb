@@ -1,5 +1,5 @@
 module RubyBill
-	class ServicesSection < Section
+	class ServiceDetails < ServicesSection
 		attr_reader :data
 
 		def initialize
@@ -8,9 +8,7 @@ module RubyBill
 
 		def method_missing(name, *args, &block)
 			return @data[name] = args[0] unless block_given?
-			service_details = ServiceDetails.new
-			service_details.instance_eval &block
-			@data[:service] = [service_details.data]
+			raise "Not supported!"
 		end
 	end
 end

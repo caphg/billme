@@ -22,6 +22,7 @@ RubyBill.bill do
   end
 
   services do
+    bla "test"
     service do
       name "Website design"
       description "Designing period 2015-5-5 to 2015-6-5"
