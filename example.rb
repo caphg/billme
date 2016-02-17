@@ -13,14 +13,12 @@ RubyBill.bill do
   end
 
   client do
-    section do
-      project_name "Website development"
-      name "google"
-      date "2015-05-05"
-      due_date "2015-06-05"
-      address "California"
-      email "google@google.com"
-    end
+    project_name "Website development"
+    name "google"
+    date "2015-05-05"
+    due_date "2015-06-05"
+    address "California"
+    email "google@google.com"
   end
 
   # items do
@@ -40,8 +38,8 @@ RubyBill.bill do
   #   end
   # end
 
-  # other do
-  #   notice "A finance charge of 1.5% will be made on unpaid balances after 30 days."
-  #   footer "Invoice was created on a computer and is valid without the signature and seal."
-  # end
+  other do
+    notice "A finance charge of 1.5% will be made on unpaid balances after 30 days."
+    footer "Invoice was created on a computer and is valid without the signature and seal."
+  end
 end
