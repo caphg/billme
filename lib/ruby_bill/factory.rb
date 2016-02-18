@@ -27,24 +27,6 @@ module RubyBill
       @data[:services][:subtotal] = section.subtotal
     end
 
-    # def company(&block)
-    #   section = CompanySection.new
-    #   section.instance_eval &block
-    #   @data[:company] = section.data;
-    # end
-
-    # def client(&block)
-    #   section = ClientSection.new
-    #   section.instance_eval &block
-    #   @data[:client] = section.data
-    # end
-
-    # def other(&block)
-    #   section = OtherSection.new
-    #   section.instance_eval &block
-    #   @data[:other] = section.data
-    # end
-
     def generate
       erb = ERB.new(File.read(@template_file_path))
       erb.filename = filename
