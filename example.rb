@@ -1,6 +1,7 @@
 require 'ruby_bill'
 
 RubyBill.bill do
+  number "2016-1-1"
   company do
     logo "logo.png"
 
@@ -22,7 +23,7 @@ RubyBill.bill do
   end
 
   services do
-    bla "test"
+    tax "0.25"
     service do
       name "Website design"
       description "Designing period 2015-5-5 to 2015-6-5"

@@ -11,34 +11,41 @@ module RubyBill
       read_css
     end
 
+    def method_missing(name, *args, &block)
+      return @data[name.to_sym] = args[0] unless block_given?
+      super "Not supported!"
+    end
+
     attr_accessor :company_name, :bill_year, :bill_place, :bill_number
 
     def company(&block)
       p "in company..."
       section = CompanySection.new
       section.instance_eval &block
-      p "#{section.data} | data"
+      @data[:company] = section.data;
     end
 
     def client(&block)
       p "in client..."
       section = ClientSection.new
       section.instance_eval &block
-      p "#{section.data} | data"
+      @data[:client] = section.data
     end
 
     def other(&block)
       p "in other..."
       section = OtherSection.new
       section.instance_eval &block
-      p "#{section.data} | data"
+      @data[:other] = section.data
     end
 
     def services(&block)
       p "in services..."
       section = ServicesSection.new
       section.instance_eval &block
-      p "#{section.data} | data"
+      @data[:services] = section.data
+      @data[:services][:total] = section.total
+      @data[:services][:subtotal] = section.subtotal
     end
 
     def generate

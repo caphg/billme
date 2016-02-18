@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title><%= get_bill_id %></title>
+  <title><%= @data[:number] %></title>
   <style>
     <%= @css %>
   </style>
@@ -15,20 +15,18 @@
   </div>
   <h1>INVOICE <%= get_bill_id %></h1>
   <div id="company" class="clearfix">
-    <div><%= @data[:company_name] %></div>
-    <div><%= @data[:company_address] %><br /> <%= @data[:company_city] %>, <%= @data[:company_country] %></div>
-    <div><%= @data[:company_phone] %></div>
-    <div><a href="mailto:<%= @data[:company_email] %>"><%= @data[:company_email] %></a></div>
+    <div><%= @data[:company][:company_name] %></div>
+    <div><%= @data[:company][:company_address] %><br /> <%= @data[:company][:company_city] %>, <%= @data[:company][:company_country] %></div>
+    <div><%= @data[:company][:company_phone] %></div>
+    <div><a href="mailto:<%= @data[:company][:company_email] %>"><%= @data[:company][:company_email] %></a></div>
   </div>
   <div id="project">
-    <% @groups[:client].sections.each do |section| %>
-    <div><span>PROJECT</span> <%= section.data[:project_name] %></div>
-    <div><span>CLIENT</span> <%= section.data[:name] %></div>
-    <div><span>ADDRESS</span> <%= section.data[:address] %></div>
-    <div><span>EMAIL</span> <a href="mailto:<%= section.data[:email] %>"><%= section.data[:email] %></a></div>
-    <div><span>DATE</span> <%= section.data[:date] %></div>
-    <div><span>DUE DATE</span> <%= section.data[:due_date] %></div>
-    <% end %>
+    <div><span>PROJECT</span> <%= @data[:client][:project_name] %></div>
+    <div><span>CLIENT</span> <%= @data[:client][:name] %></div>
+    <div><span>ADDRESS</span> <%= @data[:client][:address] %></div>
+    <div><span>EMAIL</span> <a href="mailto:<%= @data[:client][:email] %>"><%= @data[:client][:email] %></a></div>
+    <div><span>DATE</span> <%= @data[:client][:date] %></div>
+    <div><span>DUE DATE</span> <%= @data[:client][:due_date] %></div>
   </div>
 </header>
 <main>
@@ -43,38 +41,38 @@
     </tr>
     </thead>
     <tbody>
-    <% @groups[:items].sections.each do |section| %>
+    <% @data[:services][:services].each do |service| %>
     <tr>
-      <td class="service"><%= section.data[:service] %></td>
-      <td class="desc"><%= section.data[:description] %></td>
-      <td class="unit"><%= section.data[:unit] %><%= section.data[:currency] %></td>
-      <td class="qty"><%= section.data[:quantity] %></td>
-      <td class="total"><%= section.data[:quantity].to_i * section.data[:unit].to_i %><%= section.data[:currency] %></td>
+      <td class="service"><%= service[:name] %></td>
+      <td class="desc"><%= service[:description] %></td>
+      <td class="unit"><%= service[:unit] %><%= service[:currency] %></td>
+      <td class="qty"><%= service[:quantity] %></td>
+      <td class="total"><%= service[:quantity].to_i * service[:unit].to_i %><%= service[:currency] %></td>
     </tr>
     <% end %>
     <tr>
       <td colspan="4">SUBTOTAL</td>
-      <td class="total"><%= @groups[:items].sections.map {|section| section.data[:quantity].to_i * section.data[:unit].to_i }.inject{|sum,x| sum + x } %></td>
+      <td class="total"><%= @data[:services][:subtotal] %></td>
     </tr>
     <tr>
       <td colspan="4">TAX 25%</td>
-      <td class="total"><td class="total"><%= @groups[:items].sections.map {|section| section.data[:quantity].to_i * section.data[:unit].to_i }.inject{|sum,x| sum + x } * 0.25 %></td>
+      <td class="total"><td class="total"><%= @data[:services][:tax] %></td>
       </td>
     </tr>
     <tr>
-      <td colspan="4" class="grand total">GRAND TOTAL</td>
-      <td class="grand total"><td class="total"><%= @groups[:items].sections.map {|section| section.data[:quantity].to_i * section.data[:unit].to_i }.inject{|sum,x| sum + x } * 1.25 %></td>
+      <td colspan="4" class="grand total">TOTAL</td>
+      <td class="grand total"><td class="total"><%= @data[:services][:total] %></td>
       </td>
     </tr>
     </tbody>
   </table>
   <div id="notices">
     <div>NOTICE:</div>
-    <div class="notice"><%= @data[:notice] %></div>
+    <div class="notice"><%= @data[:other][:notice] %></div>
   </div>
 </main>
 <footer>
-    <%= @data[:footer] %>
+    <%= @data[:other][:footer] %>
 </footer>
 </body>
 </html>
