@@ -16,8 +16,6 @@ module RubyBill
       super "Not supported!"
     end
 
-    attr_accessor :company_name, :bill_year, :bill_place, :bill_number
-
     def company(&block)
       p "in company..."
       section = CompanySection.new
