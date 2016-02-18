@@ -10,6 +10,6 @@ module RubyBill
   def self.bill(&block)
     factory = Factory.new
     factory.instance_eval &block
-    factory.generate
+    factory.render
   end
 end

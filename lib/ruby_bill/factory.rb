@@ -25,9 +25,10 @@ module RubyBill
       @data[:services] = section.data
       @data[:services][:total] = section.total
       @data[:services][:subtotal] = section.subtotal
+      @data[:services][:tax] = section.total - section.subtotal
     end
 
-    def generate
+    def render
       erb = ERB.new(File.read(@template_file_path))
       erb.filename = filename
       result = erb.result(binding)

@@ -13,12 +13,12 @@ module RubyBill
 			@data[:services] << service_details.data
 		end
 
-		def subtotal
+		def total
 			@data[:services].reduce(0) {|sum, obj| sum += obj[:unit].to_i * obj[:quantity].to_i }
 		end
 
-		def total
-			subtotal * (1 - @data[:tax].to_f)
+		def subtotal
+			total * (1 - @data[:tax].to_f)
 		end
 	end
 end
