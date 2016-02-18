@@ -6,6 +6,7 @@ module RubyBill
 			@data = {}
 		end
 
+		# Showcase of dynamic methds (obsolete)
 		# attributes.each do |attribute|
 		# 	define_method(attribute.to_sym) do |value|
 		# 		@data[attribute] = value

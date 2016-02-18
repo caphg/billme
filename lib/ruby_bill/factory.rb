@@ -13,32 +13,13 @@ module RubyBill
 
     def method_missing(name, *args, &block)
       return @data[name.to_sym] = args[0] unless block_given?
-      super "Not supported!"
-    end
-
-    def company(&block)
-      p "in company..."
-      section = CompanySection.new
+      #super "Not supported!"
+      section = Section.new
       section.instance_eval &block
-      @data[:company] = section.data;
-    end
-
-    def client(&block)
-      p "in client..."
-      section = ClientSection.new
-      section.instance_eval &block
-      @data[:client] = section.data
-    end
-
-    def other(&block)
-      p "in other..."
-      section = OtherSection.new
-      section.instance_eval &block
-      @data[:other] = section.data
+      @data[name] = section.data
     end
 
     def services(&block)
-      p "in services..."
       section = ServicesSection.new
       section.instance_eval &block
       @data[:services] = section.data
@@ -46,9 +27,27 @@ module RubyBill
       @data[:services][:subtotal] = section.subtotal
     end
 
+    # def company(&block)
+    #   section = CompanySection.new
+    #   section.instance_eval &block
+    #   @data[:company] = section.data;
+    # end
+
+    # def client(&block)
+    #   section = ClientSection.new
+    #   section.instance_eval &block
+    #   @data[:client] = section.data
+    # end
+
+    # def other(&block)
+    #   section = OtherSection.new
+    #   section.instance_eval &block
+    #   @data[:other] = section.data
+    # end
+
     def generate
       erb = ERB.new(File.read(@template_file_path))
-      erb.filename = "bill1"
+      erb.filename = filename
       result = erb.result(binding)
       File.open('output.html', 'w') do |file|
         file.write(result)

@@ -1,4 +1,7 @@
 module RubyBill
+
+  # Just a showcase for dynamic methods(not used)...
+  
   class Entries
     def self.company_entries
       [:company_address, :company_city, :company_country, :company_phone, :company_name, :company_email, :logo]

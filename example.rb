@@ -2,6 +2,8 @@ require 'ruby_bill'
 
 RubyBill.bill do
   number "2016-1-1"
+  filename "Bill printout"
+  
   company do
     logo "logo.png"
 
