@@ -7,8 +7,8 @@ module RubyBill
 		end
 
 		def method_missing(name, *args, &block)
-		  return @data[name.to_sym] = args[0] unless block_given?
-		  super "Not supported!"
+			return @data[name.to_sym] = args[0] unless block_given?
+			super "Not supported!"
 		end
 	end
 end

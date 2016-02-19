@@ -35,6 +35,7 @@ module RubyBill
       File.open('output.html', 'w') do |file|
         file.write(result)
       end
+      result
     end
 
     private
