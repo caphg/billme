@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Generates invoices"
   spec.description   = "Gem will generate an invoice from the data provided"
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/caphg/billme"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
