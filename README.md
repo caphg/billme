@@ -1,7 +1,7 @@
 # Billme
 
 
-This gem generates invoice based on data provided. It is in very early stage and will support other features soon.
+This gem generates invoice based on data provided. The output will be an erb generated HTML file. It is in very early stage and will support other features soon.
 
 ## Installation
 
