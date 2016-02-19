@@ -1,6 +1,6 @@
-require 'ruby_bill'
+require 'billme'
 
-RubyBill.bill do
+Billme.bill do
   number "2016-1-1"
   filename "Bill printout"
 

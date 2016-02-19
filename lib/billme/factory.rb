@@ -1,6 +1,6 @@
 require "erb"
 
-module RubyBill
+module Billme
   class Factory
     def initialize
       @template_file_path = File.expand_path('../views/bill.html.erb', __FILE__)

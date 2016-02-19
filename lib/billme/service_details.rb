@@ -1,4 +1,4 @@
-module RubyBill
+module Billme
 	class ServiceDetails < ServicesSection
 		attr_reader :data
 

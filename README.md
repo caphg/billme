@@ -1,4 +1,4 @@
-# RubyBill
+# Billme
 
 
 This gem generates invoice based on data provided. It is in very early stage and will support other features soon.
@@ -8,7 +8,7 @@ This gem generates invoice based on data provided. It is in very early stage and
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ruby_bill'
+gem 'billme'
 ```
 
 And then execute:
@@ -17,7 +17,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install ruby_bill
+    $ gem install billme
 
 ## Usage
 
@@ -31,7 +31,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/ruby_bill/fork )
+1. Fork it ( https://github.com/[my-github-username]/billme/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
