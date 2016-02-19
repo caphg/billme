@@ -10,10 +10,12 @@
 </head>
 <body>
 <header class="clearfix">
+  <% if @data[:logo] %>
   <div id="logo">
     <img src="<%= @data[:logo] %>" alt="Logo">
   </div>
-  <h1>INVOICE <%= get_bill_id %></h1>
+  <% end %>
+  <h1>INVOICE <%= @data[:number] %></h1>
   <div id="company" class="clearfix">
     <div><%= @data[:company][:company_name] %></div>
     <div><%= @data[:company][:company_address] %><br /> <%= @data[:company][:company_city] %>, <%= @data[:company][:company_country] %></div>
