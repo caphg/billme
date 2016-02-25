@@ -22,8 +22,8 @@
     <% if @data[:company][:company_phone] %>
       <div><%= @data[:company][:company_phone] %></div>
     <% end %>
-    <% if @data[:company][:vat] %>
-      <div>VAT ID: <%= @data[:company][:vat] %></div>
+    <% if @data[:client][:vat] %>
+      <div>VAT ID: <%= @data[:client][:vat] %></div>
     <% end %>
     <% if @data[:company][:company_email] %>
       <div><a href="mailto:<%= @data[:company][:company_email] %>"><%= @data[:company][:company_email] %></a></div>
