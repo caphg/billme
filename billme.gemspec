@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["hrvoje.grdic1@gmail.com"]
 
   spec.summary       = "Generates invoices"
-  spec.description   = "Gem will generate an invoice from the data provided"
+  spec.description   = "This gem generates invoice based on data provided. The output will be an erb generated HTML file and return html string as result. It is in very early stage and will support other features soon."
   spec.homepage      = "https://github.com/caphg/billme"
   spec.license       = "MIT"
 
