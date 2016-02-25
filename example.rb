@@ -22,6 +22,7 @@ Billme.bill do
     due_date "2015-06-05"
     address "Earth"
     email "starfleet@earth.com"
+    vat "1234567891011"
   end
 
   services do

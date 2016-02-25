@@ -19,14 +19,25 @@
   <div id="company" class="clearfix">
     <div><%= @data[:company][:company_name] %></div>
     <div><%= @data[:company][:company_address] %><br /> <%= @data[:company][:company_city] %>, <%= @data[:company][:company_country] %></div>
-    <div><%= @data[:company][:company_phone] %></div>
-    <div><a href="mailto:<%= @data[:company][:company_email] %>"><%= @data[:company][:company_email] %></a></div>
+    <% if @data[:company][:company_phone] %>
+      <div><%= @data[:company][:company_phone] %></div>
+    <% end %>
+    <% if @data[:company][:vat] %>
+      <div>VAT ID: <%= @data[:company][:vat] %></div>
+    <% end %>
+    <% if %>
+      <div><a href="mailto:<%= @data[:company][:company_email] %>"><%= @data[:company][:company_email] %></a></div>
+    <% end %>
   </div>
   <div id="project">
-    <div><span>PROJECT</span> <%= @data[:client][:project_name] %></div>
+    <% if @data[:client][:project_name] %>
+      <div><span>PROJECT</span> <%= @data[:client][:project_name] %></div>
+    <% end %>
     <div><span>CLIENT</span> <%= @data[:client][:name] %></div>
     <div><span>ADDRESS</span> <%= @data[:client][:address] %></div>
-    <div><span>EMAIL</span> <a href="mailto:<%= @data[:client][:email] %>"><%= @data[:client][:email] %></a></div>
+    <% if @data[:client][:email] %>
+      <div><span>EMAIL</span> <a href="mailto:<%= @data[:client][:email] %>"><%= @data[:client][:email] %></a></div>
+    <% end %>
     <div><span>DATE</span> <%= @data[:client][:date] %></div>
     <div><span>DUE DATE</span> <%= @data[:client][:due_date] %></div>
   </div>
