@@ -39,7 +39,7 @@
       <div><span>EMAIL</span> <a href="mailto:<%= @data[:client][:email] %>"><%= @data[:client][:email] %></a></div>
     <% end %>
     <div><span>BILL DATE</span> <%= @data[:client][:bill_date] %></div>
-    <div><span>DATE DELIVERED</span> <%= @data[:client][:date] %></div>
+    <div><span>DELIVERED</span> <%= @data[:client][:date] %></div>
     <div><span>DUE DATE</span> <%= @data[:client][:due_date] %></div>
   </div>
 </header>
@@ -66,7 +66,7 @@
     <% end %>
     <tr>
       <td colspan="3">SUBTOTAL</td>
-      <td class="total"><%= @data[:services][:subtotal] %><%= @data[:services][:currency] %></td>
+      <td class="total"><td class="total"><%= @data[:services][:subtotal] %><%= @data[:services][:currency] %></td></td>
     </tr>
     <tr>
       <td colspan="3">TAX <%= @data[:services][:tax_percentage] %>%</td>
