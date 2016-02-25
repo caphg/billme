@@ -20,6 +20,7 @@ Billme.bill do
     name "Federation"
     date "2015-05-05"
     due_date "2015-06-05"
+    bill_date "2015-06-01"
     address "Earth"
     email "starfleet@earth.com"
     vat "1234567891011"
@@ -27,18 +28,17 @@ Billme.bill do
 
   services do
     tax "0.25"
+    currency "$"
     service do
       name "Engage Romulans"
       description "Warmup for battle"
       unit "1000"
-      currency "$"
       quantity "1"
     end
     service do
       name "Rescue mission"
       description "Rescue captive away teams"
       unit "2000"
-      currency "$"
       quantity "2"
     end
   end

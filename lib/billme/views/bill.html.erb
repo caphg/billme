@@ -17,16 +17,16 @@
   <% end %>
   <h1>INVOICE <%= @data[:number] %></h1>
   <div id="company" class="clearfix">
-    <div><%= @data[:company][:company_name] %></div>
-    <div><%= @data[:company][:company_address] %><br /> <%= @data[:company][:company_city] %>, <%= @data[:company][:company_country] %></div>
+    <div>ISSUED BY: <%= @data[:company][:company_name] %></div>
+    <div>ADDRESS: <%= @data[:company][:company_address] %><br /> <%= @data[:company][:company_city] %>, <%= @data[:company][:company_country] %></div>
     <% if @data[:company][:company_phone] %>
-      <div><%= @data[:company][:company_phone] %></div>
+      <div>PHONE: <%= @data[:company][:company_phone] %></div>
     <% end %>
     <% if @data[:client][:vat] %>
       <div>VAT ID: <%= @data[:client][:vat] %></div>
     <% end %>
     <% if @data[:company][:company_email] %>
-      <div><a href="mailto:<%= @data[:company][:company_email] %>"><%= @data[:company][:company_email] %></a></div>
+      <div>EMAIL: <a href="mailto:<%= @data[:company][:company_email] %>"><%= @data[:company][:company_email] %></a></div>
     <% end %>
   </div>
   <div id="project">
@@ -38,7 +38,8 @@
     <% if @data[:client][:email] %>
       <div><span>EMAIL</span> <a href="mailto:<%= @data[:client][:email] %>"><%= @data[:client][:email] %></a></div>
     <% end %>
-    <div><span>DATE</span> <%= @data[:client][:date] %></div>
+    <div><span>BILL DATE</span> <%= @data[:client][:bill_date] %></div>
+    <div><span>DATE DELIVERED</span> <%= @data[:client][:date] %></div>
     <div><span>DUE DATE</span> <%= @data[:client][:due_date] %></div>
   </div>
 </header>
@@ -58,23 +59,23 @@
     <tr>
       <td class="service"><%= service[:name] %></td>
       <td class="desc"><%= service[:description] %></td>
-      <td class="unit"><%= service[:unit] %><%= service[:currency] %></td>
+      <td class="unit"><%= service[:unit] %><%= @data[:services][:currency] %></td>
       <td class="qty"><%= service[:quantity] %></td>
-      <td class="total"><%= service[:quantity].to_i * service[:unit].to_i %><%= service[:currency] %></td>
+      <td class="total"><%= service[:quantity].to_i * service[:unit].to_i %><%= @data[:services][:currency] %></td>
     </tr>
     <% end %>
     <tr>
-      <td colspan="4">SUBTOTAL</td>
-      <td class="total"><%= @data[:services][:subtotal] %></td>
+      <td colspan="3">SUBTOTAL</td>
+      <td class="total"><%= @data[:services][:subtotal] %><%= @data[:services][:currency] %></td>
     </tr>
     <tr>
-      <td colspan="4">TAX 25%</td>
-      <td class="total"><td class="total"><%= @data[:services][:tax] %></td>
+      <td colspan="3">TAX <%= @data[:services][:tax_percentage] %>%</td>
+      <td class="total"><td class="total"><%= @data[:services][:tax] %><%= @data[:services][:currency] %></td>
       </td>
     </tr>
     <tr>
-      <td colspan="4" class="grand total">TOTAL</td>
-      <td class="grand total"><td class="total"><%= @data[:services][:total] %></td>
+      <td colspan="3" class="grand total">TOTAL</td>
+      <td class="grand total"><td class="total"><%= @data[:services][:total] %><%= @data[:services][:currency] %></td>
       </td>
     </tr>
     </tbody>

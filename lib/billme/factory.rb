@@ -25,6 +25,7 @@ module Billme
       @data[:services] = section.data
       @data[:services][:total] = section.total
       @data[:services][:subtotal] = section.subtotal
+      @data[:services][:tax_percentage] = section.data[:tax].to_f * 100
       @data[:services][:tax] = section.total - section.subtotal
     end
 
