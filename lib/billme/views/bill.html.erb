@@ -15,7 +15,7 @@
     <img src="<%= @data[:logo] %>" alt="Logo">
   </div>
   <% end %>
-  <h1>INVOICE <%= @data[:number] %></h1>
+  <h1><%= I18n.t :invoice %> <%= @data[:number] %></h1>
   <div id="company" class="clearfix">
     <div><%= @data[:company][:company_name] %></div>
     <% if @data[:company][:vat] %>
