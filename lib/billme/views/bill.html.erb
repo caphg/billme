@@ -31,28 +31,28 @@
   </div>
   <div id="project">
     <% if @data[:client][:project_name] %>
-      <div><span>PROJECT</span> <%= @data[:client][:project_name] %></div>
+      <div><span><%= I18n.t :project %></span> <%= @data[:client][:project_name] %></div>
     <% end %>
-    <div><span>CLIENT</span> <%= @data[:client][:name] %></div>
-    <div><span>VAT</span> <%= @data[:client][:vat] %></div>
-    <div><span>ADDRESS</span> <%= @data[:client][:address] %></div>
+    <div><span><%= I18n.t :client %></span> <%= @data[:client][:name] %></div>
+    <div><span><%= I18n.t :vat %></span> <%= @data[:client][:vat] %></div>
+    <div><span><%= I18n.t :address %></span> <%= @data[:client][:address] %></div>
     <% if @data[:client][:email] %>
       <div><span>EMAIL</span> <a href="mailto:<%= @data[:client][:email] %>"><%= @data[:client][:email] %></a></div>
     <% end %>
-    <div><span>BILL DATE</span> <%= @data[:client][:bill_date] %></div>
-    <div><span>DELIVERED</span> <%= @data[:client][:date] %></div>
-    <div><span>DUE DATE</span> <%= @data[:client][:due_date] %></div>
+    <div><span><%= I18n.t :bill_date %></span> <%= @data[:client][:bill_date] %></div>
+    <div><span><%= I18n.t :delivered %></span> <%= @data[:client][:date] %></div>
+    <div><span><%= I18n.t :due_date %></span> <%= @data[:client][:due_date] %></div>
   </div>
 </header>
 <main>
   <table>
     <thead>
     <tr>
-      <th class="service">SERVICE</th>
-      <th class="desc">DESCRIPTION</th>
-      <th>PRICE</th>
-      <th>QTY</th>
-      <th>TOTAL</th>
+      <th class="service"><%= I18n.t :service %></th>
+      <th class="desc"><%= I18n.t :description %></th>
+      <th><%= I18n.t :price %></th>
+      <th><%= I18n.t :qty %></th>
+      <th><%= I18n.t :total %></th>
     </tr>
     </thead>
     <tbody>
@@ -66,52 +66,52 @@
     </tr>
     <% end %>
     <tr>
-      <td colspan="3">SUBTOTAL</td>
+      <td colspan="3"><%= I18n.t :subtotal %></td>
       <td class="total"><td class="total"><%= @data[:services][:subtotal] %><%= @data[:services][:currency] %></td></td>
     </tr>
     <tr>
-      <td colspan="3">TAX <%= @data[:services][:tax_percentage] %>%</td>
+      <td colspan="3"><%= I18n.t :tax %> <%= @data[:services][:tax_percentage] %>%</td>
       <td class="total"><td class="total"><%= @data[:services][:tax] %><%= @data[:services][:currency] %></td>
       </td>
     </tr>
     <tr>
-      <td colspan="3" class="grand total">TOTAL</td>
+      <td colspan="3" class="grand total"><%= I18n.t :total %></td>
       <td class="grand total"><td class="grand total"><%= @data[:services][:total] %><%= @data[:services][:currency] %></td>
       </td>
     </tr>
     </tbody>
   </table>
   <div id="notices">
-    <div>NOTICE:</div>
+    <div><%= I18n.t :notice %>:</div>
     <div class="notice"><%= @data[:other][:notice] %></div>
-    <div>PAYMENT METHOD:</div>
+    <div><%= I18n.t :payment_method %>:</div>
     <div class="notice"><%= @data[:other][:payment_method] %></div>
-    <div>OPERATOR:</div>
+    <div><%= I18n.t :operator %>:</div>
     <div class="notice"><%= @data[:other][:operator] %></div>
-    <div>ACCOUNT NUMBER:</div>
+    <div><%= I18n.t :acc_number %>:</div>
     <div class="notice"><%= @data[:company][:iban] %></div>
-    <div>PAYMENT ID:</div>
+    <div><%= I18n.t :pay_id %>:</div>
     <div class="notice"><%= @data[:other][:pay_number] %></div>
   </div>
 </main>
 <footer>
   <div id="other">
     <div class="column-left">
-      <p class="title">Our addresses</p>
+      <p class="title"><%= I18n.t :our_address %></p>
       <p><%= @data[:company][:company_address] %></p>
       <p><%= @data[:company][:company_city] %></p>
       <p><%= @data[:company][:company_country] %></p>
     </div>
     <div class="column-center">
-      <p class="title">Legal</p>
-      <p>VAT: <%= show(@data[:company][:vat]) %> </p>
-      <p>IBAN: <%= show(@data[:company][:iban]) %> </p>
-      <p>SWIFT: <%= show(@data[:company][:swift]) %> </p>
+      <p class="title"><%= I18n.t :legal %></p>
+      <p><%= I18n.t :vat %>: <%= show(@data[:company][:vat]) %> </p>
+      <p><%= I18n.t :iban %>: <%= show(@data[:company][:iban]) %> </p>
+      <p><%= I18n.t :swift %>: <%= show(@data[:company][:swift]) %> </p>
     </div>
     <div class="column-right">
       <p class="title">Contact</p>
       <p>EMAIL: <%= show(@data[:company][:company_email]) %> </p>
-      <p>PHONE: <%= show(@data[:company][:company_phone]) %> </p>
+      <p><%= I18n.t :phone %>: <%= show(@data[:company][:company_phone]) %> </p>
     </div>
   </div>
   <p>
