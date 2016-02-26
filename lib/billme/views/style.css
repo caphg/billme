@@ -116,20 +116,39 @@ table td.total {
 }
 
 table td.grand {
-    border-top: 1px solid #5D6975;;
+    border-top: 1px solid #5D6975;
 }
 
 #notices .notice {
     color: #5D6975;
     font-size: 1.2em;
+    margin-bottom: 10px;
 }
+
+#other {
+  color: #C1CED9;
+  font-size: 1.2em;
+  position: relative;
+  top: -20px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#other .title {
+  font-size: 1.25em;
+  color: #5D6975;
+}
+
+.column-left{ float: left; width: 33%; }
+.column-right{ float: right; width: 33%; }
+.column-center{ display: inline-block; width: 33%; }
 
 footer {
     color: #5D6975;
     width: 100%;
     height: 30px;
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    top: 100px;
     border-top: 1px solid #C1CED9;
     padding: 8px 0;
     text-align: center;

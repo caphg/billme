@@ -1,3 +1,3 @@
 module Billme
-  VERSION = "0.13.0"
+  VERSION = "0.19.0"
 end

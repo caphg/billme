@@ -13,6 +13,9 @@ Billme.bill do
     company_country "Universe"
     company_phone "+ 123 123 123 1"
     company_email "uss@ncc1701.com"
+    vat "123456789"
+    iban "XX123456789"
+    swift "XXX123"
   end
 
   client do
@@ -46,5 +49,8 @@ Billme.bill do
   other do
     notice "A finance charge of 1.5% will be made on unpaid balances after 30 days."
     footer "Invoice was created on a computer and is valid without the signature and seal."
+    payment_method "Credit card"
+    operator "Cpt Picard"
+    pay_number "2015-1-1"
   end
 end

@@ -123,20 +123,39 @@ table td.total {
 }
 
 table td.grand {
-    border-top: 1px solid #5D6975;;
+    border-top: 1px solid #5D6975;
 }
 
 #notices .notice {
     color: #5D6975;
     font-size: 1.2em;
+    margin-bottom: 10px;
 }
+
+#other {
+  color: #C1CED9;
+  font-size: 1.2em;
+  position: relative;
+  top: -20px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#other .title {
+  font-size: 1.25em;
+  color: #5D6975;
+}
+
+.column-left{ float: left; width: 33%; }
+.column-right{ float: right; width: 33%; }
+.column-center{ display: inline-block; width: 33%; }
 
 footer {
     color: #5D6975;
     width: 100%;
     height: 30px;
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    top: 100px;
     border-top: 1px solid #C1CED9;
     padding: 8px 0;
     text-align: center;
@@ -148,16 +167,16 @@ footer {
   
   <h1>INVOICE 2016-1-1</h1>
   <div id="company" class="clearfix">
-    <div>ISSUED BY: Enterprise LLC</div>
-    <div>ADDRESS: The Neutral Zone 123<br /> Beta Quadrant, Universe</div>
+    <div>Enterprise LLC</div>
     
-      <div>PHONE: + 123 123 123 1</div>
+      <div>123456789</div>
+    
+    <div>The Neutral Zone 123<br /> Beta Quadrant, Universe</div>
+    
+      <div>+ 123 123 123 1</div>
     
     
-      <div>VAT ID: 1234567891011</div>
-    
-    
-      <div>EMAIL: <a href="mailto:uss@ncc1701.com">uss@ncc1701.com</a></div>
+      <div><a href="mailto:uss@ncc1701.com">uss@ncc1701.com</a></div>
     
   </div>
   <div id="project">
@@ -165,6 +184,7 @@ footer {
       <div><span>PROJECT</span> Battle engagement</div>
     
     <div><span>CLIENT</span> Federation</div>
+    <div><span>VAT</span> 1234567891011</div>
     <div><span>ADDRESS</span> Earth</div>
     
       <div><span>EMAIL</span> <a href="mailto:starfleet@earth.com">starfleet@earth.com</a></div>
@@ -214,7 +234,7 @@ footer {
     </tr>
     <tr>
       <td colspan="3" class="grand total">TOTAL</td>
-      <td class="grand total"><td class="total">5000$</td>
+      <td class="grand total"><td class="grand total">5000$</td>
       </td>
     </tr>
     </tbody>
@@ -222,9 +242,36 @@ footer {
   <div id="notices">
     <div>NOTICE:</div>
     <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+    <div>PAYMENT METHOD:</div>
+    <div class="notice">Credit card</div>
+    <div>OPERATOR:</div>
+    <div class="notice">Cpt Picard</div>
+    <div>ACCOUNT NUMBER:</div>
+    <div class="notice">XX123456789</div>
+    <div>PAYMENT ID:</div>
+    <div class="notice">2015-1-1</div>
   </div>
 </main>
 <footer>
+  <div id="other">
+    <div class="column-left">
+      <p class="title">Our addresses</p>
+      <p>The Neutral Zone 123</p>
+      <p>Beta Quadrant</p>
+      <p>Universe</p>
+    </div>
+    <div class="column-center">
+      <p class="title">Legal</p>
+      <p>VAT: 123456789 </p>
+      <p>IBAN: XX123456789 </p>
+      <p>SWIFT: XXX123 </p>
+    </div>
+    <div class="column-right">
+      <p class="title">Contact</p>
+      <p>EMAIL: uss@ncc1701.com </p>
+      <p>PHONE: + 123 123 123 1 </p>
+    </div>
+  </div>
     Invoice was created on a computer and is valid without the signature and seal.
 </footer>
 </body>

@@ -17,16 +17,16 @@
   <% end %>
   <h1>INVOICE <%= @data[:number] %></h1>
   <div id="company" class="clearfix">
-    <div>ISSUED BY: <%= @data[:company][:company_name] %></div>
-    <div>ADDRESS: <%= @data[:company][:company_address] %><br /> <%= @data[:company][:company_city] %>, <%= @data[:company][:company_country] %></div>
-    <% if @data[:company][:company_phone] %>
-      <div>PHONE: <%= @data[:company][:company_phone] %></div>
+    <div><%= @data[:company][:company_name] %></div>
+    <% if @data[:company][:vat] %>
+      <div><%= @data[:company][:vat] %></div>
     <% end %>
-    <% if @data[:client][:vat] %>
-      <div>VAT ID: <%= @data[:client][:vat] %></div>
+    <div><%= @data[:company][:company_address] %><br /> <%= @data[:company][:company_city] %>, <%= @data[:company][:company_country] %></div>
+    <% if @data[:company][:company_phone] %>
+      <div><%= @data[:company][:company_phone] %></div>
     <% end %>
     <% if @data[:company][:company_email] %>
-      <div>EMAIL: <a href="mailto:<%= @data[:company][:company_email] %>"><%= @data[:company][:company_email] %></a></div>
+      <div><a href="mailto:<%= @data[:company][:company_email] %>"><%= @data[:company][:company_email] %></a></div>
     <% end %>
   </div>
   <div id="project">
@@ -34,6 +34,7 @@
       <div><span>PROJECT</span> <%= @data[:client][:project_name] %></div>
     <% end %>
     <div><span>CLIENT</span> <%= @data[:client][:name] %></div>
+    <div><span>VAT</span> <%= @data[:client][:vat] %></div>
     <div><span>ADDRESS</span> <%= @data[:client][:address] %></div>
     <% if @data[:client][:email] %>
       <div><span>EMAIL</span> <a href="mailto:<%= @data[:client][:email] %>"><%= @data[:client][:email] %></a></div>
@@ -58,7 +59,7 @@
     <% @data[:services][:services].each do |service| %>
     <tr>
       <td class="service"><%= service[:name] %></td>
-      <td class="desc"><%= service[:description] %></td>
+      <td class="desc"><%= service[:description] || '-' %></td>
       <td class="unit"><%= service[:unit] %><%= @data[:services][:currency] %></td>
       <td class="qty"><%= service[:quantity] %></td>
       <td class="total"><%= service[:quantity].to_i * service[:unit].to_i %><%= @data[:services][:currency] %></td>
@@ -75,7 +76,7 @@
     </tr>
     <tr>
       <td colspan="3" class="grand total">TOTAL</td>
-      <td class="grand total"><td class="total"><%= @data[:services][:total] %><%= @data[:services][:currency] %></td>
+      <td class="grand total"><td class="grand total"><%= @data[:services][:total] %><%= @data[:services][:currency] %></td>
       </td>
     </tr>
     </tbody>
@@ -83,9 +84,36 @@
   <div id="notices">
     <div>NOTICE:</div>
     <div class="notice"><%= @data[:other][:notice] %></div>
+    <div>PAYMENT METHOD:</div>
+    <div class="notice"><%= @data[:other][:payment_method] %></div>
+    <div>OPERATOR:</div>
+    <div class="notice"><%= @data[:other][:operator] %></div>
+    <div>ACCOUNT NUMBER:</div>
+    <div class="notice"><%= @data[:company][:iban] %></div>
+    <div>PAYMENT ID:</div>
+    <div class="notice"><%= @data[:other][:pay_number] %></div>
   </div>
 </main>
 <footer>
+  <div id="other">
+    <div class="column-left">
+      <p class="title">Our addresses</p>
+      <p><%= @data[:company][:company_address] %></p>
+      <p><%= @data[:company][:company_city] %></p>
+      <p><%= @data[:company][:company_country] %></p>
+    </div>
+    <div class="column-center">
+      <p class="title">Legal</p>
+      <p>VAT: <%= show(@data[:company][:vat]) %> </p>
+      <p>IBAN: <%= show(@data[:company][:iban]) %> </p>
+      <p>SWIFT: <%= show(@data[:company][:swift]) %> </p>
+    </div>
+    <div class="column-right">
+      <p class="title">Contact</p>
+      <p>EMAIL: <%= show(@data[:company][:company_email]) %> </p>
+      <p>PHONE: <%= show(@data[:company][:company_phone]) %> </p>
+    </div>
+  </div>
     <%= @data[:other][:footer] %>
 </footer>
 </body>
