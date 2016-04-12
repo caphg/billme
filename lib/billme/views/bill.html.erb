@@ -39,9 +39,9 @@
     <% if @data[:client][:email] %>
       <div><span>EMAIL</span> <a href="mailto:<%= @data[:client][:email] %>"><%= @data[:client][:email] %></a></div>
     <% end %>
-    <div><span><%= I18n.t :bill_date %></span> <%= @data[:client][:bill_date] %></div>
-    <div><span><%= I18n.t :delivered %></span> <%= @data[:client][:date] %></div>
-    <div><span><%= I18n.t :due_date %></span> <%= @data[:client][:due_date] %></div>
+    <div><span><%= I18n.t :bill_date %></span> <%= @data[:client][:bill_date].try(:getlocal) %></div>
+    <div><span><%= I18n.t :delivered %></span> <%= @data[:client][:date].try(:getlocal) %></div>
+    <div><span><%= I18n.t :due_date %></span> <%= @data[:client][:due_date].try(:getlocal) %></div>
   </div>
 </header>
 <main>
