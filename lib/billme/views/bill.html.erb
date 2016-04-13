@@ -60,23 +60,23 @@
     <tr>
       <td class="service"><%= service[:name] %></td>
       <td class="desc"><%= service[:description] || '-' %></td>
-      <td class="unit"><%= service[:unit] %><%= @data[:services][:currency] %></td>
+      <td class="unit"><%= service[:unit].to_f.round_money %> <%= @data[:services][:currency] %></td>
       <td class="qty"><%= service[:quantity] %></td>
-      <td class="total"><%= service[:quantity].to_i * service[:unit].to_i %><%= @data[:services][:currency] %></td>
+      <td class="total"><%= (service[:quantity].to_i * service[:unit].to_i).round_money %> <%= @data[:services][:currency] %></td>
     </tr>
     <% end %>
     <tr>
       <td colspan="3"><%= I18n.t :subtotal %></td>
-      <td class="total"><td class="total"><%= @data[:services][:subtotal] %><%= @data[:services][:currency] %></td></td>
+      <td class="total"><td class="total"><%= @data[:services][:subtotal].round_money %> <%= @data[:services][:currency] %></td></td>
     </tr>
     <tr>
       <td colspan="3"><%= I18n.t :tax %> <%= @data[:services][:tax_percentage] %>%</td>
-      <td class="total"><td class="total"><%= @data[:services][:tax] %><%= @data[:services][:currency] %></td>
+      <td class="total"><td class="total"><%= @data[:services][:tax].round_money %> <%= @data[:services][:currency] %></td>
       </td>
     </tr>
     <tr>
       <td colspan="3" class="grand total"><%= I18n.t :total %></td>
-      <td class="grand total"><td class="grand total"><%= @data[:services][:total] %><%= @data[:services][:currency] %></td>
+      <td class="grand total"><td class="grand total"><%= @data[:services][:total].round_money %> <%= @data[:services][:currency] %></td>
       </td>
     </tr>
     </tbody>

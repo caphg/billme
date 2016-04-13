@@ -7,3 +7,9 @@ class Object
 		input ||= '-'
 	end
 end
+
+Numeric.class_eval do
+  def round_money
+    '%.2f' % self
+  end
+end
